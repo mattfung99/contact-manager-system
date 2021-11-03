@@ -1,5 +1,13 @@
 setup:
+	cd cm-client
+	npm i
+	cd ..
 	cd cm-server
+	npm i
+	cd ..
+
+setup-client:
+	cd cm-client
 	npm i
 	cd ..
 
