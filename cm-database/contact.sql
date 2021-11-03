@@ -4,7 +4,7 @@ CREATE TABLE Contact(
 	contactLastname VARCHAR(60),
 	contactEmail VARCHAR(60),
 	contactPhoneNumber VARCHAR(60), 
-	contactNotes VARCHAR(60)
+	contactNotes VARCHAR(180)
 );
 
 INSERT INTO Contact(contactFirstname, contactLastname, contactEmail, contactPhoneNumber, contactNotes) VALUES("John", "Doe", "testing1@test.ca", "604-999-9999", "Test1");

@@ -6,9 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="../public/css/app.css" />
+    <script src="../public/js/newContact.js"></script>
     <title>New Contact</title>
   </head>
   <body>
     <h1>New Contact</h1>
+    <dl>
+      <dt>
+        <label>First name: <i>*</i> </label>
+      </dt>
+      <dd>
+        <input id="first-name" type="text" required="" />
+      </dd>
+      <dt>
+        <label>Last name: <i>*</i> </label>
+      </dt>
+      <dd>
+        <input id="last-name" type="text" maxlength="60" required="" />
+      </dd>
+      <dt>
+        <label>Email: <i>*</i> </label>
+      </dt>
+      <dd>
+        <input id="email" type="text" maxlength="60" />
+      </dd>
+      <dt>
+        <label>Phone number: <i>*</i> </label>
+      </dt>
+      <dd>
+        <input id="phone-number" type="text" maxlength="60" />
+      </dd>
+      <dt>
+        <label>Notes:</label>
+      </dt>
+      <dd>
+        <textarea id="notes" wrap="soft" maxlength="180"></textarea>
+      </dd>
+    </dl>
+    <p><i>* </i>Denotes required field</p>
+    <button onclick="setupNewContactPage()">Create Contact</button>
   </body>
 </html>
