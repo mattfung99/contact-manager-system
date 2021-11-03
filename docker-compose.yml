@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  cm-server:
+    build:
+      context: ./cm-server
+      dockerfile: Dockerfile
+      target: base
+    depends_on:
+      - cm-database
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./cm-server/src:/home/node/app/src
+      - ./cm-server/nodemon.json:/home/node/app/nodemon.json
+    container_name: content-manager-server
+    ports:
+      - 8080:8080
+    command: npm run dev
+
+  cm-database:
+    image: mysql:8.0
+    build: ./cm-database
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=cmdb
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+    container_name: content-manager-db
