@@ -1,6 +1,21 @@
 version: '3.8'
 
 services:
+  cm-client:
+    build:
+      context: ./cm-client
+      dockerfile: Dockerfile
+      target: base
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./cm-client/src:/home/node/app/src
+      - ./cm-client/nodemon.json:/home/node/app/nodemon.json
+    container_name: content-manager-client
+    ports:
+      - 8080:8080
+    command: npm run dev
+
   cm-server:
     build:
       context: ./cm-server
@@ -15,7 +30,7 @@ services:
       - ./cm-server/nodemon.json:/home/node/app/nodemon.json
     container_name: content-manager-server
     ports:
-      - 8080:8080
+      - 3000:3000
     command: npm run dev
 
   cm-database:
