@@ -11,7 +11,7 @@ services:
     volumes:
       - ./cm-client/src:/home/node/app/src
       - ./cm-client/nodemon.json:/home/node/app/nodemon.json
-    container_name: content-manager-client
+    container_name: contact-manager-client
     ports:
       - 8080:8080
     command: npm run dev
@@ -28,7 +28,7 @@ services:
     volumes:
       - ./cm-server/src:/home/node/app/src
       - ./cm-server/nodemon.json:/home/node/app/nodemon.json
-    container_name: content-manager-server
+    container_name: contact-manager-server
     ports:
       - 3000:3000
     command: npm run dev
@@ -43,4 +43,4 @@ services:
       - MYSQL_USER=user
       - MYSQL_PASSWORD=password
       - MYSQL_ROOT_PASSWORD=password
-    container_name: content-manager-db
+    container_name: contact-manager-db

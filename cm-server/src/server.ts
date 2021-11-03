@@ -2,15 +2,21 @@
 
 import http from 'http';
 import express from 'express';
+import cors from 'cors';
 import logging from './config/logging';
 import config from './config/config';
-import contactRoutes from './routes/contact';
+import contactRoutes from './routes/contactRoute';
 
 const NAMESPACE = 'Server';
 const router = express();
+const allowedOrigins = ['http://localhost:8080'];
+const options: cors.CorsOptions = {
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+};
 
 router.get('/', (req, res) => {
-  res.send('Content Manager Server is running!');
+  res.send('Contact Manager Server is running!');
 });
 
 router.use((req, res, next) => {
@@ -22,6 +28,7 @@ router.use((req, res, next) => {
   next();
 });
 
+router.use(cors(options));
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 router.use('/contact', contactRoutes);
