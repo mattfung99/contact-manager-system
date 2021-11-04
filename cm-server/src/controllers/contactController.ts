@@ -11,6 +11,13 @@ const createContact = async (req: Request, res: Response, next: NextFunction) =>
   createRequest(req, res, next, NAMESPACE, query, 'Created contact: ');
 };
 
+const deleteContactById = async (req: Request, res: Response, next: NextFunction) => {
+  logging.info(NAMESPACE, 'Deleting a Contact by Id.');
+  const getURLId: number = +req.params.id;
+  const query = `DELETE FROM Contact WHERE contactId = ${getURLId}`;
+  createRequest(req, res, next, NAMESPACE, query, `Deleted contact with id: ${getURLId}`);
+};
+
 const deleteAllContacts = async (req: Request, res: Response, next: NextFunction) => {
   logging.info(NAMESPACE, 'Deleting all Contacts.');
   const query = 'DELETE FROM Contact';
@@ -19,7 +26,7 @@ const deleteAllContacts = async (req: Request, res: Response, next: NextFunction
 
 const getContactById = async (req: Request, res: Response, next: NextFunction) => {
   logging.info(NAMESPACE, 'Getting a Contact by Id.');
-  const getURLId = req.params.id;
+  const getURLId: number = +req.params.id;
   const query = `SELECT * FROM Contact WHERE contactId IN (${getURLId})`;
   createRequest(req, res, next, NAMESPACE, query, `Retrieved contact with id: ${getURLId}`);
 };
@@ -30,4 +37,4 @@ const getAllContacts = async (req: Request, res: Response, next: NextFunction) =
   createRequest(req, res, next, NAMESPACE, query, 'Retrieved contact: ');
 };
 
-export default { createContact, deleteAllContacts, getContactById, getAllContacts };
+export default { createContact, deleteContactById, deleteAllContacts, getContactById, getAllContacts };

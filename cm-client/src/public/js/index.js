@@ -32,23 +32,20 @@ const deleteContacts = async () => {
 
 const listContacts = () => {
   let listContact, listLink;
-  let idCounter = 0;
   const referenceContactList = document.querySelector('#contacts-list');
   contactList.result.forEach((item) => {
     listContact = document.createElement('li');
     listLink = document.createElement('a');
-    listContact.setAttribute('id', ++idCounter);
+    listContact.setAttribute('id', item.contactId);
     listLink.textContent = item.contactFirstname + ' ' + item.contactLastname;
-    listLink.setAttribute('href', '/view/' + idCounter);
+    listLink.setAttribute('href', '/view/' + item.contactId);
     listContact.appendChild(listLink);
     referenceContactList.appendChild(listContact);
   });
 };
 
 const unlistContacts = () => {
-  let unlistContact;
-  for (let i = 0; i < contactList.result.length; i++) {
-    unlistContact = document.getElementById(i + 1);
-    unlistContact.remove();
-  }
+  contactList.result.forEach((item) => {
+    document.getElementById(item.contactId).remove();
+  });
 };
