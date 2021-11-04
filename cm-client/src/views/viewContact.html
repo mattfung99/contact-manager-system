@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="../public/css/app.css" />
-    <script src="../public/js/viewContact.js"></script>
+    <script src="../public/js/interface.js" defer></script>
+    <script src="../public/js/viewContact.js" defer></script>
     <title id="view-contact-title">Contact List:</title>
   </head>
-  <body onload="setupNewContactPage()">
+  <body onload="setupViewContactPage()">
     <h1 id="view-contact-header">Contact List:</h1>
     <dl id="view-contact-info">
       <dt>
@@ -34,7 +35,7 @@
       <dd id="view-notes"></dd>
     </dl>
     <a id="view-return-home" href="/">List of contacts</a>
-    <a id="view-edit-contact" href="/new">Edit contact</a>
+    <span id="view-edit-contact" onclick="redirectToEditPage()">Edit contact</span>
     <span id="view-delete-contact" onclick="deleteContactById()">Delete contact</span>
   </body>
 </html>

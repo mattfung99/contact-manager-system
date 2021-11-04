@@ -11,6 +11,14 @@ const createContact = async (req: Request, res: Response, next: NextFunction) =>
   createRequest(req, res, next, NAMESPACE, query, 'Created contact: ');
 };
 
+const editContactById = async (req: Request, res: Response, next: NextFunction) => {
+  logging.info(NAMESPACE, 'Editing Contact by Id.');
+  const { contactFirstname, contactLastname, contactEmail, contactPhoneNumber, contactNotes } = req.body;
+  const getURLId: number = +req.params.id;
+  const query = `UPDATE Contact SET contactFirstname = "${contactFirstname}", contactLastname = "${contactLastname}", contactEmail = "${contactEmail}", contactPhoneNumber = "${contactPhoneNumber}", contactNotes = "${contactNotes}" WHERE contactId = ${getURLId}`;
+  createRequest(req, res, next, NAMESPACE, query, 'Edited contact with id: ${getURLId}');
+};
+
 const deleteContactById = async (req: Request, res: Response, next: NextFunction) => {
   logging.info(NAMESPACE, 'Deleting a Contact by Id.');
   const getURLId: number = +req.params.id;
@@ -37,4 +45,4 @@ const getAllContacts = async (req: Request, res: Response, next: NextFunction) =
   createRequest(req, res, next, NAMESPACE, query, 'Retrieved contact: ');
 };
 
-export default { createContact, deleteContactById, deleteAllContacts, getContactById, getAllContacts };
+export default { createContact, editContactById, deleteContactById, deleteAllContacts, getContactById, getAllContacts };

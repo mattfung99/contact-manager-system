@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="../public/css/app.css" />
+    <script src="../public/js/interface.js" defer></script>
+    <script src="../public/js/newContact.js" defer></script>
+    <title id="edit-contact-title">Edit Contact</title>
+  </head>
+  <body onload="setupEditContactPage()">
+    <h1 id="edit-contact-header">Edit Contact</h1>
+    <dl id="edit-contact-info">
+      <dt>
+        <label>First name: <i>*</i> </label>
+      </dt>
+      <dd>
+        <input id="edit-first-name" type="text" required="" />
+      </dd>
+      <dt>
+        <label>Last name: <i>*</i> </label>
+      </dt>
+      <dd>
+        <input id="edit-last-name" type="text" maxlength="60" required="" />
+      </dd>
+      <dt>
+        <label>Email: <i>*</i> </label>
+      </dt>
+      <dd>
+        <input id="edit-email" type="text" maxlength="60" />
+      </dd>
+      <dt>
+        <label>Phone number: <i>*</i> </label>
+      </dt>
+      <dd>
+        <input id="edit-phone-number" type="text" maxlength="60" />
+      </dd>
+      <dt>
+        <label>Notes:</label>
+      </dt>
+      <dd>
+        <textarea id="edit-notes" wrap="soft" maxlength="180"></textarea>
+      </dd>
+    </dl>
+    <p id="edit-required-fields"><i>* </i>Denotes required field</p>
+    <button id="edit-update-contact" onclick="setValidateInputFields()">Update Contact</button>
+  </body>
+</html>

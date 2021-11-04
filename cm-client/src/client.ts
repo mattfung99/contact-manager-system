@@ -24,6 +24,10 @@ router.get('/view/:id', (req: any, res: any) => {
   res.sendFile(path.join(__dirname, '/views/viewContact.html'));
 });
 
+router.get('/edit/:id', (req: any, res: any) => {
+  res.sendFile(path.join(__dirname, '/views/editContact.html'));
+});
+
 router.use((req: any, res: any) => {
   res.sendFile(path.join(__dirname, '/views/notFound.html'));
 });
