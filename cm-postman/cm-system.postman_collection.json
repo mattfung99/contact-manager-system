@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "e5b8746d-5720-4d2e-ad27-9ad11f777a37",
+    "_postman_id": "b6aee7d4-fc5b-4366-8eed-d5eb70ccde4a",
     "name": "cm-system",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
@@ -27,6 +27,55 @@
               "host": ["localhost"],
               "port": "3000",
               "path": ["contact"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT a contact",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"contactFirstname\": \"Joe\",\r\n    \"contactLastname\": \"Jimmy\",\r\n    \"contactEmail\": \"testing0@test.ca\",\r\n    \"contactPhoneNumber\": \"111-111-1111\",\r\n    \"contactNotes\": \"Test0\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/contact/:id",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["contact", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE a contact",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/contact/:id",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["contact", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
             }
           },
           "response": []
