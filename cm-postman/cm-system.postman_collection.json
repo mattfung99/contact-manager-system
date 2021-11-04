@@ -46,6 +46,26 @@
           "response": []
         },
         {
+          "name": "GET a contact",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/contact/:id",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["contact", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
           "name": "GET contacts",
           "request": {
             "method": "GET",
