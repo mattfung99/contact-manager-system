@@ -20,6 +20,14 @@ router.get('/new', (req: any, res: any) => {
   res.sendFile(path.join(__dirname, '/views/newContact.html'));
 });
 
+router.get('/view/:id', (req: any, res: any) => {
+  res.sendFile(path.join(__dirname, '/views/viewContact.html'));
+});
+
+router.use((req: any, res: any) => {
+  res.sendFile(path.join(__dirname, '/views/notFound.html'));
+});
+
 app.use(
   expressCspHeader({
     policies: {

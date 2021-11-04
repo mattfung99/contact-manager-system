@@ -31,13 +31,16 @@ const deleteContacts = async () => {
 };
 
 const listContacts = () => {
-  let listContact;
+  let listContact, listLink;
   let idCounter = 0;
   const referenceContactList = document.querySelector('#contacts-list');
   contactList.result.forEach((item) => {
     listContact = document.createElement('li');
+    listLink = document.createElement('a');
     listContact.setAttribute('id', ++idCounter);
-    listContact.textContent = item.contactFirstname + ' ' + item.contactLastname;
+    listLink.textContent = item.contactFirstname + ' ' + item.contactLastname;
+    listLink.setAttribute('href', '/view/' + idCounter);
+    listContact.appendChild(listLink);
     referenceContactList.appendChild(listContact);
   });
 };
