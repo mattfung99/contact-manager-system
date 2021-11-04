@@ -17,10 +17,17 @@ const deleteAllContacts = async (req: Request, res: Response, next: NextFunction
   createRequest(req, res, next, NAMESPACE, query, 'Deleted contacts: ');
 };
 
+const getContactById = async (req: Request, res: Response, next: NextFunction) => {
+  logging.info(NAMESPACE, 'Getting a Contact by Id.');
+  const getURLId = req.params.id;
+  const query = `SELECT * FROM Contact WHERE contactId IN (${getURLId})`;
+  createRequest(req, res, next, NAMESPACE, query, `Retrieved contact with id: ${getURLId}`);
+};
+
 const getAllContacts = async (req: Request, res: Response, next: NextFunction) => {
   logging.info(NAMESPACE, 'Getting all Contacts.');
   const query = 'SELECT * FROM Contact';
   createRequest(req, res, next, NAMESPACE, query, 'Retrieved contact: ');
 };
 
-export default { createContact, deleteAllContacts, getAllContacts };
+export default { createContact, deleteAllContacts, getContactById, getAllContacts };
